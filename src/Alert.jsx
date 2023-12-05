@@ -12,7 +12,7 @@ const Alert = ({type, msg, removeAlert, list}) => {
 
 
   return (
-    <p>
+    <p className='bg-red-200 text-center w-full py-2 text-red-800'>
       {msg}
     </p>
   )

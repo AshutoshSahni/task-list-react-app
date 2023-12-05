@@ -75,19 +75,20 @@ const App = () => {
 
 
   return (
-    <section>
+    <section className='flex flex-col border-2 p-4 h-max items-center'>
       <form onSubmit={handleSubmit}>
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
-        <h3>Task/List App</h3>
+        <h3 className='text-3xl font-bold text-center my-4'>Task/List App</h3>
         <div>
           <input 
             type='text' 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
-            className='border-2'
+            placeholder='Cheese Cake'
+            className='border-2 py-1 px-2'
           />
           <button 
-            className='bg-blue-700 text-white'
+            className='bg-blue-700 text-white px-4 py-1 m-2 font-bold'
           >
             {isEditing ? 'Edit' : 'Add Item'}
           </button>
@@ -95,9 +96,14 @@ const App = () => {
       </form>
       {
         list.length > 0 &&
-        <div>
+        <div className='w-full flex flex-col mt-8 mb-4'>
           <List items={list} removeItem={removeItem} editItem={editItem} />
-          <button onClick={clearList}>Clear List</button>
+          <button 
+            onClick={clearList}
+            className='bg-red-400 text-red-800 font-bold mt-8 py-2'
+          >
+            Clear List
+          </button>
         </div>
       }
     </section>
